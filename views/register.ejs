@@ -1,0 +1,20 @@
+<h1>Register</h1>
+<%let i%>
+<% if(typeof err != 'undefined'){ %>
+    <% for(i=0;i<(err.length);i++){ %>
+        <h3><%=err[i];%></h3>
+    <%}%>
+<%}%>
+<form action="/users/register" method="POST">
+    <input type="text" name="name" placeholder="name" value="<%= typeof(name)!='undefined'?name:'' %>">
+    <input type="email" name="email" placeholder="email" value="<%= typeof(email)!='undefined'?email:'' %>">
+    <select name="category">
+        <option value=""></option>
+        <option value="manager">Manager</option>
+        <option value="employee">Employee</option>
+    </select>
+    <input type="password" name="password" value="<%= typeof(password)!='undefined'?password:'' %>">
+    <input type="password" name="confPassword">
+    <input type="submit" value="Submit">
+</form>
+<a href="/users/login"></a>

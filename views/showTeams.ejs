@@ -1,0 +1,38 @@
+<table>
+    <% if(category == 'manager'){ %>
+        <thead>
+            <th>
+                <td>Name</td>
+                <td>Members</td>
+                <td>Task assigned</td>
+            </th>
+        </thead>
+        <tbody>
+            <% results.forEach(result=>{ %>
+                <tr>
+                    <td><%=result.name%></td>
+                    <td><%=result.members%></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    <% } %>
+    <% if(category == 'employee'){ %>
+        <thead>
+            <th>
+                <td>Name</td>
+                <td>Manager</td>
+                <td>Members</td>
+                <td>Task assigned</td>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%=results.name%></td>
+                <td><%=results.manager%></td>
+                <td><%=results.members%></td>
+            </tr>
+        </tbody>
+    <% } %>
+</table>
+
+

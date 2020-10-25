@@ -1,0 +1,12 @@
+<h1>Login</h1>
+<h3><% if(success_message != ''){ %>
+    <%=success_message%>
+    <% } %>
+</h3>
+<form action="/users/login" method="POST">
+    <input type="email" name="email" placeholder="email">
+    <input type="password" name="password">
+    <input type="submit" value="Submit">
+</form>
+
+<a href="/users/register">Register</a>
