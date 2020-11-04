@@ -1,10 +1,12 @@
+<% if(category == 'manager'){ %>
+    <a href="/manage/teams/create">Create new team</a>
+<% } %>
 <table>
     <% if(category == 'manager'){ %>
         <thead>
             <th>
                 <td>Name</td>
                 <td>Members</td>
-                <td>Task assigned</td>
             </th>
         </thead>
         <tbody>
@@ -12,6 +14,7 @@
                 <tr>
                     <td><%=result.name%></td>
                     <td><%=result.members%></td>
+                    <td><a href="/manage/teams/delete/<%=result.id%>">Delete Team</a></td>
                 </tr>
             <% }) %>
         </tbody>
