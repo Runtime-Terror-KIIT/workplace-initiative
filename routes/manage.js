@@ -14,7 +14,14 @@ router.post('/teams/create',(req,res)=>{
     const { name,emailList } = req.body;
     let emps = emailList.split('\r\n');
     Team.findOne({}).sort({id: -1}).exec((err,count)=>{
-        let newTeam = new Team({ id:(count.id+1),name,manager:req.user.email });
+        if(err)
+            throw err;
+        let c;
+        if(!count)
+            c=0;
+        else
+            c=count.id;
+        let newTeam = new Team({ id:(c+1),name,manager:req.user.email });
         newTeam.save((err,docs)=>{
             if(err)
                 throw err;
