@@ -3,16 +3,18 @@
 <% } %>
 <table>
     <% if(category == 'employee'){ %>
+        <% for(let i=0;i<(resultTask.length);i++){ %>
         <tr>
-            <td><%= resultTask.title %></td>
-            <td><%= resultTask.description %></td>
-            <td><%= resultTask.dueDate %></td>
-            <td><%= resultTask.manager %></td>
+            <td><%= resultTask[i].title %></td>
+            <td><%= resultTask[i].description %></td>
+            <td><%= resultTask[i].dueDate %></td>
+            <td><%= resultTask[i].manager %></td>
             <td><%= resultTeam.name %></td>
-            <td><%= resultTask.points %></td>
-            <td><%= resultTask.rewards %></td>
-            <td><%= resultTask.completed %></td>
+            <td><%= resultTask[i].points %></td>
+            <td><%= resultTask[i].rewards %></td>
+            <td><%= resultTask[i].completed %></td>
         </tr>
+        <% } %>
     <% } %>
     <% if(category == 'manager'){ %>
         <% for(let i=0;i<(resultTask.length);i++){ %>

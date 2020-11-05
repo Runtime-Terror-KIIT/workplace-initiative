@@ -13,8 +13,8 @@ router.get('/teams/create',ensureAuthenticated,(req,res)=>{
 router.post('/teams/create',(req,res)=>{
     const { name,emailList } = req.body;
     let emps = emailList.split('\r\n');
-    Team.countDocuments((err,count)=>{
-        let newTeam = new Team({ id:(count+1),name,manager:req.user.email });
+    Team.findOne({}).sort({id: -1}).exec((err,count)=>{
+        let newTeam = new Team({ id:(count.id+1),name,manager:req.user.email });
         newTeam.save((err,docs)=>{
             if(err)
                 throw err;
@@ -44,6 +44,12 @@ router.post('/teams/create',(req,res)=>{
             res.redirect('/views/teams');
         })
     })
+    /**
+     * Team.countDocuments((err,count)=>{
+        if(err)
+            throw err;
+    })
+     */
 })
 
 router.get('/teams/delete/:id',ensureAuthenticated,(req,res)=>{

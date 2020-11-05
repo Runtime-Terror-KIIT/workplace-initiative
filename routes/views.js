@@ -47,10 +47,10 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
             if(err)
                 throw err;
             console.log(docs)
-            Task.findOne({team: docs.belongToTeam},(err,resultTask)=>{
+            Task.find({team: docs.belongToTeam},(err,resultTask)=>{
                 if(err)
                     throw err;
-                Team.findOne({'id':resultTask.team},(err,resultTeam)=>{
+                Team.findOne({id:resultTask[0].team},(err,resultTeam)=>{
                     if(err)
                         throw err;
                     res.render('showTasks',{category,resultTask,resultTeam});
