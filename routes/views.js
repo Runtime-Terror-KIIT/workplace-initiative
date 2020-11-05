@@ -66,7 +66,7 @@ router.get('/leaderboard',(req,res)=>{
     Team.find({}).sort({points:-1}).exec((err,results)=>{
         if(err)
             throw err;
-        res.render('leaderboard',{results});
+        res.render('leaderBoard',{results});
     })
 })
 
