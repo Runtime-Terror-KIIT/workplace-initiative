@@ -17,6 +17,7 @@ router.post('/teams/create',(req,res)=>{
         if(err)
             throw err;
         let c;
+        console.log(count)
         if(!count)
             c=0;
         else
