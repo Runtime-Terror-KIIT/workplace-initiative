@@ -1,10 +1,28 @@
-<% if(category == 'manager'){ %>
-    <a href="/manage/tasks/create">Create new task</a>
-<% } %>
-<table>
-    <% if(category == 'employee'){ %>
-        <% for(let i=0;i<(resultTask.length);i++){ %>
-        <tr>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Show Tasks</title>
+  <link rel="stylesheet" type="text/css" href="/css/stylelogin.css">
+  <div class="main">
+    <div class="logo">
+      <img src="/images/logo.png">
+    </div>
+</head>
+
+<body>
+  <% if(category == 'manager'){ %>
+    <h2><a href="/manage/tasks/create" style="color:white;"">Create new task</a></h2>
+  <% } %>
+  <div class="login">
+
+    <form id="login">
+      <table style="width:50%">
+        <% if(category == 'employee'){ %>
+          <% if(typeof resultTask != 'undefined'){ %>
+            <% for(let i=0;i<(resultTask.length);i++){ %>
+            <tr>
             <td><%= resultTask[i].title %></td>
             <td><%= resultTask[i].description %></td>
             <td><%= resultTask[i].dueDate %></td>
@@ -13,22 +31,40 @@
             <td><%= resultTask[i].points %></td>
             <td><%= resultTask[i].rewards %></td>
             <td><%= resultTask[i].completed %></td>
-        </tr>
-        <% } %>
-    <% } %>
-    <% if(category == 'manager'){ %>
-        <% for(let i=0;i<(resultTask.length);i++){ %>
-            <tr>
-                <td><%= resultTask[i].title %></td>
-                <td><%= resultTask[i].description %></td>
-                <td><%= resultTask[i].dueDate %></td>
-                <td><%= resultTask[i].manager %></td>
-                <td><%= teamName[i] %></td>
-                <td><%= resultTask[i].points %></td>
-                <td><%= resultTask[i].rewards %></td>
-                <td><%= resultTask[i].completed %></td>
-                <td><a href="/manage/tasks/submit/<%=resultTask[i].team%>">Mark as submit</a></td>
             </tr>
+            <% } %>
+          <% } %>
         <% } %>
-    <% } %>
-</table>
+
+        <% if(category == 'manager'){ %>
+          <tr>
+            <th>
+            Title
+            </th>
+            <th>description</th>
+            <th>due date</th>
+            <th>team name</th>
+            <th>points</th>
+            <th>Status</th>
+          </tr>
+          <% if(typeof resultTask != 'undefined'){ %>
+            <% for(let i=0;i<(resultTask.length);i++){ %>
+
+              <tr>
+              <td><%= resultTask[i].title %></td>
+              <td><%= resultTask[i].description %></td>
+              <td><%= resultTask[i].dueDate %></td>
+              <td><%= teamName[i] %></td>
+              <td><%= resultTask[i].points %></td>
+              <td><%= resultTask[i].rewards %></td>
+              <td><%= resultTask[i].completed %></td>
+              <% if(resultTask[i].completed==false){ %><td><a href="/manage/tasks/submit/<%=resultTask[i].team%>"><h6>done?</h6></a></td><% } %>
+              </tr>
+            <% } %>
+          <% } %>
+        <% } %>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

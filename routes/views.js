@@ -46,7 +46,6 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
         User.findOne({email:req.user.email},(err,docs)=>{
             if(err)
                 throw err;
-            console.log(docs)
             Task.find({team: docs.belongToTeam},(err,resultTask)=>{
                 if(err)
                     throw err;

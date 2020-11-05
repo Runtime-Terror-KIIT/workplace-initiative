@@ -1,41 +1,83 @@
-<% if(category == 'manager'){ %>
-    <a href="/manage/teams/create">Create new team</a>
-<% } %>
-<table>
-    <% if(category == 'manager'){ %>
-        <thead>
-            <th>
-                <td>Name</td>
-                <td>Members</td>
-            </th>
-        </thead>
-        <tbody>
-            <% results.forEach(result=>{ %>
-                <tr>
-                    <td><%=result.name%></td>
-                    <td><%=result.members%></td>
-                    <td><a href="/manage/teams/delete/<%=result.id%>">Delete Team</a></td>
-                </tr>
-            <% }) %>
-        </tbody>
-    <% } %>
-    <% if(category == 'employee'){ %>
-        <thead>
-            <th>
-                <td>Name</td>
-                <td>Manager</td>
-                <td>Members</td>
-                <td>Task assigned</td>
-            </th>
-        </thead>
-        <tbody>
-            <tr>
-                <td><%=results.name%></td>
-                <td><%=results.manager%></td>
-                <td><%=results.members%></td>
-            </tr>
-        </tbody>
-    <% } %>
-</table>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Show Teams</title>
+  <link rel="stylesheet" type="text/css" href="/css/stylelogin.css">
+  <div class="main">
+    <div class="logo">
+      <img src="/images/logo.png">
+    </div>
+</head>
+
+<body>
+  <% if(category == 'manager'){ %>
+  <h2><a href="/manage/teams/create" style="color:white;">Create new team</a></h2>
+  <% } %>
+  <div class="login">
+
+    <form id="login" method="post" action="">
 
 
+      <table style="width:50%">
+        <% if(category == 'manager'){ %>
+        <tr>
+             
+          <th>Name</th>
+          <th>Members</th>
+          <th>
+            delete
+          </th>
+        </tr>
+        <tbody>
+          <% if(typeof results != 'undefined'){ %>
+          <% results.forEach(result=>{ %>
+          <tr>
+            <td><%=result.name%></td>
+            <td><%=result.members%></td>
+            <td><a class="teams" href="/manage/teams/delete/<%=result.id%>">
+                <h6>delete</h6>
+              </a></td>
+          </tr>
+
+          <% }) %>
+          <% } %>
+        </tbody>
+        <% } %>
+    </form>
+  </div>
+
+
+    <table>
+
+
+      <% if(category == 'employee'){ %>
+
+      <h1>Your teams</h1>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Manager</th>
+          <th>Members</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% if(typeof results != 'undefined'){ %>
+          <td><%=results.name%></td>
+          <td><%=results.manager%></td>
+          <td><%=results.members%></td>
+          <% } %>
+        </tr>
+      </tbody>
+      <% } %>
+
+
+
+
+    </table>
+
+</body>
+</html>

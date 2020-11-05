@@ -1,12 +1,40 @@
-<h1>Login</h1>
-<h3><% if(success_message != ''){ %>
-    <%=success_message%>
-    <% } %>
-</h3>
-<form action="/users/login" method="POST">
-    <input type="email" name="email" placeholder="email">
-    <input type="password" name="password">
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylelogin.css">
+    <div class="main">
+            <div class="logo">
+                <img src="/images/logo.png">
+        </div>
+</head>
+<body>
+  <h3><% if(success_message != ''){ %>
+      <%=success_message%>
+      <% } %>
+  </h3>
 
-<a href="/users/register">Register</a>
+    <h2>Login Page</h2><br>
+    <div class="login">
+    <form id="login" method="post" action="/users/login">
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="email" name="email" id="Uname" placeholder="Email">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="password" id="Pass" placeholder="Password">
+        <br><br>
+        <input type="submit" name="log" id="log" value="Log In Here">
+        <br><br>
+        <input type="checkbox" id="check">
+        <span>Remember me</span>
+        <br><br>
+        <a href="#">Forgot Password</a>
+    </form>
+    <a href="/users/register">Register</a>
+</div>
+</body>
+</html>

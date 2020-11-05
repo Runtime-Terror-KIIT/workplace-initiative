@@ -1,20 +1,64 @@
-<h1>Register</h1>
+
 <%let i%>
 <% if(typeof err != 'undefined'){ %>
     <% for(i=0;i<(err.length);i++){ %>
         <h3><%=err[i];%></h3>
     <%}%>
 <%}%>
-<form action="/users/register" method="POST">
-    <input type="text" name="name" placeholder="name" value="<%= typeof(name)!='undefined'?name:'' %>">
-    <input type="email" name="email" placeholder="email" value="<%= typeof(email)!='undefined'?email:'' %>">
-    <select name="category">
-        <option value=""></option>
-        <option value="manager">Manager</option>
-        <option value="employee">Employee</option>
-    </select>
-    <input type="password" name="password" value="<%= typeof(password)!='undefined'?password:'' %>">
-    <input type="password" name="confPassword">
-    <input type="submit" value="Submit">
-</form>
-<a href="/users/login"></a>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Form</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylelogin.css">
+    <div class="main">
+            <div class="logo">
+                <img src="/images/logo.png">
+        </div>
+</head>
+<body>
+  <h3><% if(success_message != ''){ %>
+      <%=success_message%>
+      <% } %>
+  </h3>
+
+    <h2>Register</h2><br>
+    <div class="login">
+    <form id="login" method="post" action="/users/register">
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="text" name="name" id="Uname" placeholder="Name" value="<%= typeof(name)!='undefined'?name:'' %>">
+        <br>
+        </b>
+        <br>
+        <label><b>Email
+        </label>
+        <br>
+        <input type="email" name="email" id="Uname" placeholder="Email" value="<%= typeof(email)!='undefined'?email:'' %>">
+        <br><br>
+        <select name="category">
+            <option value=""></option>
+            <option value="manager">Manager</option>
+            <option value="employee">Employee</option>
+        </select>
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+
+        <input type="password" placeholder="password" id="Pass" name="password" value="<%= typeof(password)!='undefined'?password:'' %>">
+        <br><br>
+        <input type="password" placeholder="confirm password" id="Pass" name="confPassword">
+        <br><br>
+        <input type="submit" name="log" id="log" value="Submit">
+        <br><br>
+
+        <br><br>
+
+
+    </form>
+
+</div>
+</body>
+</html>
