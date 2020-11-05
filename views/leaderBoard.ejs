@@ -12,22 +12,21 @@
   <body>
     <h2>Leaderboard</h2><br>
     <div class="login">
-    <table >
+    <table>
 
       <tr>
-        <th>Points</th>
         <th>Team name</th>
         <th>Members</th>
         <th>Manager</th>
+        <th>Points</th>
 
       </tr>
       <% results.forEach(result=>{ %>
         <tr>
-            <td><%= result.points %></td>
             <td><%= result.name %></td>
             <td><%= result.members %></td>
             <td><%= result.manager %></td>
-
+            <td><%= result.points %></td>
         </tr>
     <% }) %>
 </table>

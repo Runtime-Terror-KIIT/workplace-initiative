@@ -17,6 +17,7 @@ router.post('/teams/create',(req,res)=>{
         if(err)
             throw err;
         let c;
+        console.log(count)
         if(!count)
             c=0;
         else
@@ -73,7 +74,7 @@ router.get('/tasks/create',ensureAuthenticated,(req,res)=>{
             throw err;
         res.render('createTasks',{results});
     })
-
+    
 })
 
 router.post('/tasks/create',(req,res)=>{
@@ -86,8 +87,8 @@ router.post('/tasks/create',(req,res)=>{
     })
 })
 
-router.get('/tasks/submit/:team',ensureAuthenticated,(req,res)=>{
-    Task.findOneAndUpdate({team:req.params.team},{completed:true},(err,result)=>{
+router.get('/tasks/submit/:team/:title',ensureAuthenticated,(req,res)=>{
+    Task.findOneAndUpdate({team:req.params.team,title:req.params.title},{completed:true},(err,result)=>{
         if(err)
             throw err;
         Team.findOneAndUpdate({id:req.params.team},{points:result.points},(err,docs)=>{
