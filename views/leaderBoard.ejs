@@ -1,5 +1,27 @@
-<table>
-    <% results.forEach(result=>{ %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylelogin.css">
+    <div class="main">
+            <div class="logo">
+                <img src="/images/logo.png">
+        </div>
+  </head>
+  <body>
+    <h2>Leaderboard</h2><br>
+    <div class="login">
+    <table>
+
+      <tr>
+        <th>Team name</th>
+        <th>Members</th>
+        <th>Manager</th>
+        <th>Points</th>
+
+      </tr>
+      <% results.forEach(result=>{ %>
         <tr>
             <td><%= result.name %></td>
             <td><%= result.members %></td>
@@ -8,3 +30,4 @@
         </tr>
     <% }) %>
 </table>
+</div>

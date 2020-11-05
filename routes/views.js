@@ -31,11 +31,13 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
         Task.find({ manager:req.user.email },(err,results)=>{
             if(err)
                 throw err;
+            console.log(results)
             let teamName = [];
             results.forEach(result=>{
                 Team.findOne({id:result.team},(err,docs)=>{
                     if(err)
                         throw err;
+                    console.log(docs)
                     teamName.push(docs.name);
                 })
             })

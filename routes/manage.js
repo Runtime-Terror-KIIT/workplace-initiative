@@ -87,8 +87,8 @@ router.post('/tasks/create',(req,res)=>{
     })
 })
 
-router.get('/tasks/submit/:team',ensureAuthenticated,(req,res)=>{
-    Task.findOneAndUpdate({team:req.params.team},{completed:true},(err,result)=>{
+router.get('/tasks/submit/:team/:title',ensureAuthenticated,(req,res)=>{
+    Task.findOneAndUpdate({team:req.params.team,title:req.params.title},{completed:true},(err,result)=>{
         if(err)
             throw err;
         Team.findOneAndUpdate({id:req.params.team},{points:result.points},(err,docs)=>{

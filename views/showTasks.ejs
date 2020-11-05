@@ -58,7 +58,7 @@
               <td><%= resultTask[i].points %></td>
               <td><%= resultTask[i].rewards %></td>
               <td><%= resultTask[i].completed %></td>
-              <% if(resultTask[i].completed==false){ %><td><a href="/manage/tasks/submit/<%=resultTask[i].team%>"><h6>done?</h6></a></td><% } %>
+              <% if(resultTask[i].completed==false){ %><td><a href="/manage/tasks/submit/<%=resultTask[i].team%>/<%=resultTask[i].title%>"><h6>done?</h6></a></td><% } %>
               </tr>
             <% } %>
           <% } %>
