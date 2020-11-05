@@ -31,13 +31,11 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
         Task.find({ manager:req.user.email },(err,results)=>{
             if(err)
                 throw err;
-            console.log(results)
             let teamName = [];
             results.forEach(result=>{
                 Team.findOne({id:result.team},(err,docs)=>{
                     if(err)
                         throw err;
-                    console.log(docs)
                     teamName.push(docs.name);
                 })
             })
@@ -48,6 +46,7 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
         User.findOne({email:req.user.email},(err,docs)=>{
             if(err)
                 throw err;
+            console.log(docs)
             Task.find({team: docs.belongToTeam},(err,resultTask)=>{
                 if(err)
                     throw err;

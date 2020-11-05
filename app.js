@@ -48,42 +48,7 @@ app.use('/dashboard',require('./routes/dashboard'));
 app.use('/views',require('./routes/views'));
 app.use('/manage',require('./routes/manage'));
 
-app.get("/Employee/Teammates", function(req,res){
-  res.sendFile(__dirname + "/Teammates.html");
-});
 
-app.get("/Employee/Tasks", function(req,res){
-  res.sendFile(__dirname + "/Tasks.html");
-});
-
-app.get("/Leaderboard", function(req,res){
-  res.sendFile(__dirname + "/Leaderboard.html");
-});
-
-app.get("/Employee/Rewards", function(req,res){
-  res.sendFile(__dirname + "/Rewards.html");
-});
-
-
-app.get("/Chat", function(req,res){
-  res.sendFile(__dirname + "/Chat.html");
-});
-
-app.get("/Manager/Tasks", function(req,res){
-  res.sendFile(__dirname + "/Tasks.html");
-});
-
-app.get("/Manager/Create", function(req,res){
-  res.send("Create teams");
-});
-
-app.get("/Manager/AddEmployee", function(req,res){
-  res.send("Add employee");
-});
-
-app.get("/Manager/Points", function(req,res){
-  res.send( "Assign points");
-});
 
 const port=3000||process.env.PORT;
 app.listen(port,()=>console.log(`Server started on port ${port}...`))
