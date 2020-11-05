@@ -48,5 +48,5 @@ app.use('/dashboard',require('./routes/dashboard'));
 app.use('/views',require('./routes/views'));
 app.use('/manage',require('./routes/manage'));
 
-const port=3000||process.env.PORT;
+const port=process.env.PORT||3000;
 app.listen(port,()=>console.log(`Server started on port ${port}...`))
