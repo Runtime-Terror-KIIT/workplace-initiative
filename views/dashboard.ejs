@@ -1,4 +1,25 @@
-<h1>Hello <%=category%> <%= name%></h1>
-<a href="/views/teams">View<%= category=='manager'?' & create':'' %> teams</a>
-<a href="/views/tasks">View<%= category=='manager'?' & create':'' %> tasks</a>
-<a href="/users/logout">Logout</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylelogin.css">
+    <div class="main">
+            <div class="logo">
+                <img src="/images/logo.png">
+        </div>
+  </head>
+  <body>
+    <h2>Hello <%=category%> <%= name%> !</h2><br>
+    <div class="login">
+    <form id="login" method="post" action="/users/login">
+     <a href="/views/teams">View<%= category=='manager'?' & create':'' %> teams</a>
+      <br>
+    <a href="/views/tasks">View<%= category=='manager'?' & create':'' %> tasks</a>
+      <br>
+      <a href="/users/logout">Logout</a>
+    </form>
+
+</div>
+  </body>
+</html>

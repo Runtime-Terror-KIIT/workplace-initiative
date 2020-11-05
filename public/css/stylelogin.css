@@ -1,0 +1,82 @@
+body
+{
+   background-image: url(../images/home-bg.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.login{
+        width: 382px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 80px;
+        background: #87CEEB;
+        border-radius: 15px ;
+}
+
+h2{
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    font-family:cursive;
+}
+
+.logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+}
+
+label{
+    color: #000080;
+    font-size: 17px;
+}
+
+#Uname{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+
+#Pass{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+
+}
+
+#log{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 17px;
+    padding-left: 7px;
+    color: blue;
+
+
+}
+span{
+    color: white;
+    font-size: 17px;
+}
+a{
+  text-decoration: none;
+    float: center;
+    font-size: 25px;
+  hover {
+  transition: color .9s ease;
+  color: purple;
+}
+}
+
+.showteams{
+  margin-top: auto;
+}

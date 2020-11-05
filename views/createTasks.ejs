@@ -1,16 +1,51 @@
-<form action="/manage/tasks/create" method="post">
-    <input type="text" name="title">
-    <textarea name="description" cols="30" rows="10"></textarea>
-    <input type="date" name="dueDate">
-    <select name="team">
-        <option value=""></option>
-        <% if(typeof results != 'undefined'){ %>
-            <% for(let i=0;i<(results.length);i++){ %>
-                <option value="<%=results[i].id%>"><%=results[i].name%></option>
-            <% } %>
-        <% } %>
-    </select>
-    <input type="number" name="points">
-    <input type="text" name="rewards">
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create Task</title>
+    <link rel="stylesheet" type="text/css" href="/css/stylelogin.css">
+    <div class="main">
+            <div class="logo">
+                <img src="/images/logo.png">
+        </div>
+  </head>
+  <body>
+    <h2>Create Task</h2>
+    <div class="login">
+    <form action="/manage/teams/create" id="login" method="post">
+      <label><b>Task name
+      </b>
+      </label>
+      <input id="Uname" type="text" name="title">
+      <br><br>
+      <label><b>Task Description
+      </b>
+      </label>
+      <br>
+      <textarea  name="description" cols="20" rows="10"></textarea>
+      <br><br>
+      <label><b>Due Date
+      </b>
+      </label>
+      <br>
+      <input type="date" name="dueDate">
+      <br><br>
+      <label><b>Team
+      </b>
+      </label>
+      <br>
+      <select name="team" >
+          <option value="" ></option>
+          <% if(typeof results != 'undefined'){ %>
+              <% for(let i=0;i<(results.length);i++){ %>
+                  <option value="<%=results[i].id%>"><%=results[i].name%></option>
+              <% } %>
+          <% } %>
+      </select>
+      <br><br>
+      <input type="number" name="points" placeholder="Points">
+      <input type="text" name="rewards" placeholder="Reward">
+      <input type="submit" value="Submit">
+  </form>
+  </div>
+  </body>
