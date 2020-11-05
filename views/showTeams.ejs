@@ -15,16 +15,12 @@
   <% if(category == 'manager'){ %>
   <h2><a href="/manage/teams/create" style="color:white;">Create new team</a></h2>
   <% } %>
-
+  <div class="login">
+    <form id="login" method="post" action="">
+      <table style="width:50%">
         <% if(category == 'manager'){ %>
-          <div class="login">
-
-            <form id="login" method="post" action="">
-
-
-              <table style="width:50%">
         <tr>
-
+             
           <th>Name</th>
           <th>Members</th>
           <th>
@@ -32,6 +28,7 @@
           </th>
         </tr>
         <tbody>
+          <% if(typeof results != 'undefined'){ %>
           <% results.forEach(result=>{ %>
           <tr>
             <td><%=result.name%></td>
@@ -42,37 +39,32 @@
           </tr>
 
           <% }) %>
+          <% } %>
         </tbody>
-          </table>
-        </form>
-      </div>
         <% } %>
+    </form>
+  </div>
+    <table>
+      <% if(category == 'employee'){ %>
 
-
-
-
-  <% if(category == 'employee'){ %>
-    <h2>Your teams</h2>
-    <div class="login">
-
-    <table style="width:100%">
+      <h1>Your teams</h1>
       <thead>
         <tr>
           <th>Name</th>
           <th>Manager</th>
           <th>Members</th>
-
         </tr>
       </thead>
       <tbody>
         <tr>
+          <% if(typeof results != 'undefined'){ %>
           <td><%=results.name%></td>
           <td><%=results.manager%></td>
           <td><%=results.members%></td>
+          <% } %>
         </tr>
       </tbody>
       <% } %>
-  </table>
-  </div>
+    </table>
 </body>
 </html>

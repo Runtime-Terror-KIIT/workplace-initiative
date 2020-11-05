@@ -15,48 +15,28 @@
   <% if(category == 'manager'){ %>
     <h2><a href="/manage/tasks/create" style="color:white;"">Create new task</a></h2>
   <% } %>
+  <div class="login">
 
-
+    <form id="login">
+      <table style="width:50%">
         <% if(category == 'employee'){ %>
-          <h2>Your tasks</h2>
-          <div class="login">
-
-            <form id="login">
-
-
-          <% if(typeof resultTask != 'undefined'){ %>
+          <% if(typeof resultTask != 'undefined' && typeof resultTeam != 'undefined' ){ %>
             <% for(let i=0;i<(resultTask.length);i++){ %>
-              <table style="width:50%">
-                <tr>
-                  <th>Title</th>
-                  <th>description</th>
-                  <th>dueDate</th>
-                  <th>manager</th>
-                  <th>points</th>
-
-                  <th>Status</th>
-                </tr>
             <tr>
             <td><%= resultTask[i].title %></td>
             <td><%= resultTask[i].description %></td>
             <td><%= resultTask[i].dueDate %></td>
             <td><%= resultTask[i].manager %></td>
+            <td><%= resultTeam.name %></td>
             <td><%= resultTask[i].points %></td>
-
+            <td><%= resultTask[i].rewards %></td>
             <td><%= resultTask[i].completed %></td>
             </tr>
-              </table>
             <% } %>
           <% } %>
-      </form>
-      </div>
         <% } %>
 
         <% if(category == 'manager'){ %>
-          <div class="login">
-          <form id="login">
-            <table style="width:50%">
-
           <tr>
             <th>
             Title
@@ -67,7 +47,7 @@
             <th>points</th>
             <th>Status</th>
           </tr>
-          <% if(typeof resultTask != 'undefined'){ %>
+          <% if(typeof resultTask != 'undefined' && teamName!=null){ %>
             <% for(let i=0;i<(resultTask.length);i++){ %>
 
               <tr>
@@ -78,16 +58,13 @@
               <td><%= resultTask[i].points %></td>
               <td><%= resultTask[i].rewards %></td>
               <td><%= resultTask[i].completed %></td>
-              <% if(resultTask[i].completed==false){ %><td><a href="/manage/tasks/submit/<%=resultTask[i].team%>"><h6>done?</h6></a></td><% } %>
+              <% if(resultTask[i].completed==false){ %><td><a href="/manage/tasks/submit/<%=resultTask[i].team%>/<%=resultTask[i].title%>"><h6>done?</h6></a></td><% } %>
               </tr>
             <% } %>
           <% } %>
-          </table>
-          </form>
-          </div>
         <% } %>
-
-
-
+      </table>
+    </form>
+  </div>
 </body>
 </html>
