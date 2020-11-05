@@ -46,15 +46,15 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
         User.findOne({email:req.user.email},(err,docs)=>{
             if(err)
                 throw err;
-            Task.find({team:docs.belongToTeam},(err,resultTask)=>{
+            console.log(docs)
+            Task.findOne({team: docs.belongToTeam},(err,resultTask)=>{
                 if(err)
                     throw err;
-                Team.find({id:resultTask.team},(err,resultTeam)=>{
+                Team.findOne({'id':resultTask.team},(err,resultTeam)=>{
                     if(err)
                         throw err;
                     res.render('showTasks',{category,resultTask,resultTeam});
                 })
-                
             })
         })
     }
