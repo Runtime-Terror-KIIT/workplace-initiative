@@ -12,15 +12,18 @@
 </head>
 
 <body>
+  <br>
+  <br>
+  
   <% if(category == 'manager'){ %>
   <h2><a href="/manage/teams/create" style="color:white;">Create new team</a></h2>
   <% } %>
-  <div class="login">
+  <div class="login" style="margin: 20vh auto; width: 80%; padding: 30px 2px; padding-top: 15px;">
     <form id="login" method="post" action="">
       <table style="width:50%">
         <% if(category == 'manager'){ %>
+        <h1 style="text-align: center;">Your teams</h1>
         <tr>
-             
           <th>Name</th>
           <th>Members</th>
           <th>
@@ -44,23 +47,22 @@
         <% } %>
     </form>
   </div>
-    <table>
+    <table style="width: 50%; align-items: center; margin: 0 auto;">
       <% if(category == 'employee'){ %>
-
-      <h1>Your teams</h1>
+      <h1 style="text-align: center;">Your teams</h1>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Manager</th>
-          <th>Members</th>
+          <th style="padding-right: 150px;">Name</th>
+          <th style="padding-right: 100px; padding-left: 100px;">Manager</th>
+          <th style="padding-left: 150px;">Members</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <% if(typeof results != 'undefined'){ %>
-          <td><%=results.name%></td>
-          <td><%=results.manager%></td>
-          <td><%=results.members%></td>
+          <td style="padding-right: 150px;"><%=results.name%></td>
+          <td style="padding-right: 100px; padding-left: 100px;"><%=results.manager%></td>
+          <td style="padding-left: 150px;"><%=results.members%></td>
           <% } %>
         </tr>
       </tbody>

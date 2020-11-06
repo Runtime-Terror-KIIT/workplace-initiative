@@ -10,9 +10,12 @@
         </div>
   </head>
   <body>
+    <br>
+    <br>
+    
     <h2>Leaderboard</h2><br>
-    <div class="login">
-    <table>
+    <div class="login" style="width: 80%;">
+    <table style="width: 80%; margin: auto;">
 
       <tr>
         <th>Points</th>
@@ -22,7 +25,7 @@
       </tr>
       <% results.forEach(result=>{ %>
         <tr>
-            <td><%= result.points %></td>
+            <td><%= typeof result.points !='undefined' ? result.points : 0 %></td>
             <td><%= result.name %></td>
             <td><%= result.members %></td>
             <td><%= result.manager %></td>
