@@ -52,16 +52,6 @@
         <% } %>
 
         <% if(category == 'manager'){ %>
-          <tr>
-            <th>
-            Title
-            </th>
-            <th>description</th>
-            <th>due date</th>
-            <th>team name</th>
-            <th>points</th>
-            <th>Status</th>
-          </tr>
           <% if(typeof resultTask != 'undefined' || teamName!=null){ %>
             <% for(let i=0;i<(resultTask.length);i++){ %>
 
