@@ -31,7 +31,7 @@
           </th>
         </tr>
         <tbody>
-          <% if(typeof results != 'undefined'){ %>
+          <% if(typeof results != 'undefined' && results != null){ %>
           <% results.forEach(result=>{ %>
           <tr>
             <td><%=result.name%></td>
@@ -59,7 +59,7 @@
       </thead>
       <tbody>
         <tr>
-          <% if(typeof results != 'undefined'){ %>
+          <% if(typeof results != 'undefined' && results != null){ %>
           <td style="padding-right: 150px;"><%=results.name%></td>
           <td style="padding-right: 100px; padding-left: 100px;"><%=results.manager%></td>
           <td style="padding-left: 150px;"><%=results.members%></td>

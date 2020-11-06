@@ -52,11 +52,14 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
             Task.find({team: docs.belongToTeam},(err,resultTask)=>{
                 if(err)
                     throw err;
-                Team.findOne({id:resultTask[0].team},(err,resultTeam)=>{
-                    if(err)
-                        throw err;
-                    res.render('showTasks',{category,resultTask,resultTeam});
-                })
+                if(typeof resultTask[0]!='undefined'){
+                    Team.findOne({id:resultTask[0].team},(err,resultTeam)=>{
+                        if(err)
+                            throw err;
+                        res.render('showTasks',{category,resultTask,resultTeam});
+                    })
+                }
+                res.render('showTasks',{category});
             })
         })
     }
