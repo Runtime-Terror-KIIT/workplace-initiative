@@ -59,7 +59,8 @@ router.get('/tasks',ensureAuthenticated,(req,res)=>{
                         res.render('showTasks',{category,resultTask,resultTeam});
                     })
                 }
-                res.render('showTasks',{category});
+                else
+                    res.render('showTasks',{category});
             })
         })
     }

@@ -62,7 +62,7 @@
             <th>points</th>
             <th>Status</th>
           </tr>
-          <% if(typeof resultTask != 'undefined' && teamName!=null){ %>
+          <% if(typeof resultTask != 'undefined' || teamName!=null){ %>
             <% for(let i=0;i<(resultTask.length);i++){ %>
 
               <tr>
